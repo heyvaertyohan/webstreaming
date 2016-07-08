@@ -1,0 +1,25 @@
+{% extends 'AdminBundle::layout_backend.html.twig' %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('admin_user') }}">{{ 'Users list'|trans }}</a></li>
+    <li>{{ entity.name }}</li>
+{% endblock %}
+
+{% block titlepadding %}
+    <h2>{{ 'Modify an user'|trans }} {{ entity.name }}</h2>
+{% endblock %}
+
+{% block contentadmin %}
+
+    {{ form(edit_form) }}
+
+    <ul class="record_actions">
+        <li>{{ form(delete_form) }}</li>
+        <li>
+            <a href="{{ path('admin_user') }}">
+                <i class="icon-backward"></i> {{ 'Back to the list'|trans }}
+            </a>
+        </li>
+
+    </ul>
+{% endblock %}

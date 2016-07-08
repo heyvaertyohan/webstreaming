@@ -1,0 +1,22 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+    <div class="page-title">
+        <h1>{{ "Mise à jour"|trans }}</h1>
+    </div>
+    <!-- /.page-title -->
+    <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST"
+          class="fos_user_profile_edit">
+        {{ form_widget(form) }}
+        <div>
+            <input type="submit" value="{{ 'profile.edit.submit'|trans }}"/>
+        </div>
+    </form>
+
+    <!-- /.col-sm-4 -->
+
+{% endblock fos_user_content %}
+

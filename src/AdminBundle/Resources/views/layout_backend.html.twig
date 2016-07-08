@@ -1,0 +1,164 @@
+{% extends '::base.html.twig' %}
+
+{% block head %}
+
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/Admin/css/reset.css') }}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{{ asset('bundles/Admin/css/style.css') }}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{{ asset('bundles/Admin/css/invalid.css') }}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{{ asset('bundles/Admin/css/backend.css') }}" type="text/css" media="screen"/>
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" href="{{ asset('bundles/Admin/css/ie.css') }}" type="text/css" media="screen"/>
+    <![endif]-->
+    <!-- jQuery -->
+    <script
+            src="https://code.jquery.com/jquery-1.12.3.min.js"
+            integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/simpla.jquery.configuration.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/facebox.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/jquery.wysiwyg.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/jquery.datePicker.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/jquery.date.js') }}"></script>
+    <!--[if IE]>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/jquery.bgiframe.js') }}"></script><![endif]-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/DD_belatedPNG_0.0.7a.js') }}"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('.png_bg, img, li');
+    </script>
+    <![endif]-->
+{% endblock %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block maincontainer %}
+    <div id="body-wrapper"> <!-- Wrapper for the radial gradient background -->
+
+        {% block sidebar %}
+
+            <div id="sidebar">
+                <div id="sidebar-wrapper"> <!-- Sidebar with logo and menu -->
+
+                    <h1 id="sidebar-title"><a href="#">Simpla Admin</a></h1>
+
+                    <!-- Logo (221px wide) -->
+                    <a href="#"><img id="logo" src="{{ asset('bundles/Admin/images/logo-streaming-audio.jpg') }}" alt="Simpla Admin logo"/></a>
+
+                    <!-- Sidebar Profile links -->
+                    <div id="profile-links">
+                        {{ 'Hello'|trans }}, <a href="#" title="Edit your profile">{{ currentUser.firstname }}</a>,<br />
+                        <br />
+                        <a href="#" title="View the Site">View the Site</a> | <a href="#" title="Sign Out">Sign Out</a>
+                    </div>
+
+                    <!-- Sidebar Profile links -->
+                    <div id="profile-links">
+                        <a href="{{ path('core_homepage') }}" title="View the Site">{{ 'View the Site'|trans }}</a> | <a href="{{ (path('fos_user_security_logout')) }}" title="Sign Out">{{ 'Sign Out'|trans }}</a>
+                    </div>
+
+                    <ul id="main-nav">  <!-- Accordion Menu -->
+
+                        <li>
+                            <a href="{{ path('admin_homepage') }}" class="nav-top-item no-submenu">
+                                <!-- Add the class "no-submenu" to menu items with no sub menu -->
+                                {{ 'Dashboard'|trans }}
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="nav-top-item">
+                                {{ 'User'|trans }}
+                            </a>
+                            <ul>
+                                <li><a href="{{ path('admin_user') }}">{{ 'Users list'|trans }}</a></li>
+                                <li><a href="{{ path('admin_user_new') }}">{{ 'Add an user'|trans }}</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#" class="nav-top-item">
+                                {{ 'Settings'|trans }}
+                            </a>
+                            <ul>
+                                <li><a href="#">{{ 'General'|trans }}</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <!-- End #main-nav -->
+
+                    <div id="messages" style="display: none">
+                        <!-- Messages are shown when a link with these attributes are clicked: href="#messages" rel="modal"  -->
+
+                        <h3>3 Messages</h3>
+
+                        <p>
+                            <strong>17th May 2009</strong> by Admin<br/>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet
+                            congue.
+                            <small><a href="#" class="remove-link" title="Remove message">Remove</a></small>
+                        </p>
+
+                        <p>
+                            <strong>2nd May 2009</strong> by Jane Doe<br/>
+                            Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis,
+                            tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.
+                            <small><a href="#" class="remove-link" title="Remove message">Remove</a></small>
+                        </p>
+
+                        <p>
+                            <strong>25th April 2009</strong> by Admin<br/>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet
+                            congue.
+                            <small><a href="#" class="remove-link" title="Remove message">Remove</a></small>
+                        </p>
+
+                        <form action="#" method="post">
+
+                            <h4>New Message</h4>
+
+                            <fieldset>
+                                <textarea class="textarea" name="textfield" cols="79" rows="5"></textarea>
+                            </fieldset>
+
+                            <fieldset>
+
+                                <select name="dropdown" class="small-input">
+                                    <option value="option1">Send to...</option>
+                                    <option value="option2">Everyone</option>
+                                    <option value="option3">Admin</option>
+                                    <option value="option4">Jane Doe</option>
+                                </select>
+
+                                <input class="button" type="submit" value="Send"/>
+
+                            </fieldset>
+
+                        </form>
+
+                    </div>
+                    <!-- End #messages -->
+
+                </div>
+            </div>
+            <!-- End #sidebar -->
+        {% endblock %}
+
+        <div id="main-content"> <!-- Main Content Section with everything -->
+        {% block maincontent %}
+        {% endblock %}
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block footer %}
+
+    <div id="footer">
+        <small> <!-- Remove this notice or replace it with whatever you want -->
+            &#169; Copyright 2016 Streaming | Powered by
+                    <a href="#">Yohan Heyvaert </a> | <a href="#">Top</a>
+        </small>
+    </div>
+{% endblock %}

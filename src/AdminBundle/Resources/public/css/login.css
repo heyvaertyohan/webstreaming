@@ -1,0 +1,10 @@
+#login-forgotpwd{
+    float: right;
+    color: #FFFFFF;
+    margin-top:10px;
+}
+
+#login-forgotpwd:hover{
+    text-decoration: underline;
+
+}

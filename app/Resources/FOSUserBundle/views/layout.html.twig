@@ -1,0 +1,113 @@
+{% extends '::base.html.twig' %}
+
+{% block head %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/Admin/css/reset.css') }}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{{ asset('bundles/Admin/css/style.css') }}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{{ asset('bundles/Admin/css/invalid.css') }}" type="text/css" media="screen"/>
+
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" href="{{ asset('bundles/Admin/css/ie.css') }}" type="text/css" media="screen"/>
+    <![endif]-->
+
+    <!-- jQuery -->
+    <script
+            src="https://code.jquery.com/jquery-1.12.3.min.js"
+            integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/simpla.jquery.configuration.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/facebox.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/jquery.wysiwyg.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/jquery.datePicker.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/jquery.date.js') }}"></script>
+    <!--[if IE]>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/jquery.bgiframe.js') }}"></script><![endif]-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{{ asset('bundles/Admin/scripts/DD_belatedPNG_0.0.7a.js') }}"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('.png_bg, img, li');
+    </script>
+    <![endif]-->
+{% endblock %}
+{% block title %}{{ parent() }} | {{ 'Login'|trans }}{% endblock %}
+
+{% block maincontainer %}
+
+    <body>
+
+    <div class="main">
+        <div class="main-inner">
+            <div class="container">
+                <div class="content">
+                    <div class="row">
+                        <div id="myloginform" class="col-sm-4 col-sm-offset-4">
+                            {% if app.request.hasPreviousSession %}
+                                {% for type, messages in app.session.flashbag.all() %}
+                                    {% for message in messages %}
+                                        <div class="flash-{{ type }}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+                            {% endif %}
+
+
+
+                        </div>
+                    </div>
+                    <!-- /.row -->
+
+                </div>
+                <!-- /.content -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.main-inner -->
+    </div>
+    <!-- /.main -->
+
+    <body id="login">
+
+    <div id="login-wrapper" class="png_bg">
+        <div id="login-top">
+            <h1>{{ 'Webstreaming'|trans }}</h1>
+            <img id="logo" src="{{ asset('bundles/Admin/images/logo-streaming-audio.jpg') }}" alt="Webstreaming logo" />
+        </div>
+
+        <div id="login-content">
+
+            <form action="{{ path('fos_user_security_check') }}" method="post">
+                <p>
+                    <label for="username">{{ 'Username'|trans }}</label>
+                    <input type="text" id="username" class="text-input" name="_username" value="" required="required"/>
+                </p>
+                <div class="clear"></div>
+                <p>
+                    <label for="password">{{ 'Password'|trans }}</label>
+                    <input type="password" id="password" class="text-input" name="_password" value="" required="required" type="password"/>
+                </p>
+                <div class="clear"></div>
+                {#<p id="remember-password">
+                    <input type="checkbox" />Remember me
+                </p>#}
+                <div class="clear"></div>
+
+                <p id="remember-password">
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>{{ 'Remember me'|trans }}
+                </p>
+                <div class="clear"></div>
+                {#<a id="login-forgotpwd" href="{{ path('fos_user_resetting_send_email') }}">{{ 'Forgot your password?' }}</a>#}
+                <a id="login-forgotpwd" href="#">{{ 'Forgot your password?' }}</a>
+                <div class="clear"></div>
+                <p>
+                    <input class="button" type="submit" value="{{ 'Sign in'|trans }}" />
+
+                </p>
+
+            </form>
+        </div> <!-- End #login-content -->
+
+    </div> <!-- End #login-wrapper -->
+
+    </body>
+{% endblock %}

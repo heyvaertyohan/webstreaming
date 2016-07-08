@@ -1,0 +1,38 @@
+admin_homepage:
+    path:     /admin
+    defaults: { _controller: AdminBundle:BackEnd:index }
+
+admin_user:
+    path:     /admin/user/
+    defaults: { _controller: "AdminBundle:User:index" }
+
+admin_user_show:
+    path:     /admin/user/show/{slug}
+    defaults: { _controller: "AdminBundle:User:show" }
+
+admin_user_new:
+    path:     /admin/user/new
+    defaults: { _controller: "AdminBundle:User:new" }
+
+admin_user_create:
+    path:     /admin/user/create
+    defaults: { _controller: "AdminBundle:User:create" }
+    methods:  POST
+
+admin_user_edit:
+    path:     /admin/user/edit/{slug}
+    defaults: { _controller: "AdminBundle:User:edit" }
+
+admin_user_update:
+    path:     /user/update/{id}
+    defaults: { _controller: "AdminBundle:User:update" }
+    methods:  [POST, PUT]
+
+admin_user_delete:
+    path:     /user/delete/{id}
+    defaults: { _controller: "AdminBundle:User:delete" }
+    methods:  [POST, DELETE]
+
+admin_profile_edit:
+    path:     /user/profileedit/{id}
+    defaults: { _controller: "AdminBundle:User:profileedit" }

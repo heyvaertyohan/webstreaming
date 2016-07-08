@@ -1,0 +1,74 @@
+{% extends 'AdminBundle::layout_backend.html.twig' %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('admin_user') }}">{{ 'News list'|trans }}</a></li>
+    <li>{{ entity.name }}</li>
+{% endblock %}
+
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+
+{% block titlepadding %}
+    <h2>{{ 'User'|trans }} {{ entity.name }}</h2>
+{% endblock %}
+
+
+{% block contentadmin %}
+    <h1>User</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'Name'|trans }}</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'Phone number'|trans }}</th>
+                <td>{{ entity.telnumber }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'Street'|trans }}</th>
+                <td>{{ entity.addressstreet }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'Number'|trans }}</th>
+                <td>{{ entity.addressnumber }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'Inscription confirmation'|trans }}</th>
+                <td>{{ entity.inscriptioncf }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'Type'|trans }}</th>
+                <td>{{ entity.usertype }}</td>
+            </tr>
+            <tr>
+                <th>{{ "Trying number"|trans }}</th>
+                <td>{{ entity.tryingnumber }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'Bamed'|trans }}</th>
+                <td>{{ entity.bamed }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_user') }}">
+            <i class="icon-backward"> </i> {{ 'Back to the list'|trans }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('admin_user_edit', { 'id': entity.id }) }}">
+            <i class="icon-edit"> </i> {{ 'Edit'|trans }}
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

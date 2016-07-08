@@ -1,0 +1,125 @@
+{% extends 'AdminBundle::layout_backend.html.twig' %}
+
+{% block breadcrumb %}
+    <li><a href="#">{{ 'Users list'|trans }}</a>/ <a href="#">{{ entity.slug }}</a><</li>
+{% endblock %}
+
+{% block titlepadding %}
+    <h2>{{ 'Add an user'|trans }}</h2>
+{% endblock %}
+
+{% block maincontent %}
+
+    {# {{ form(form) }}#}
+
+    <div class="content-box"><!-- Start Content Box -->
+
+        <div class="content-box-header">
+
+            <h3>{{ 'Add an user'|trans }}</h3>
+
+            <div class="clear"></div>
+
+        </div> <!-- End .content-box-header -->
+
+        <div class="content-box-content">
+
+            <div class="tab-content default-tab" id="tab2">
+
+                <form action="#" method="post">
+
+                    <fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+
+                        <div>
+                            <label for="username">{{ 'User name'|trans }}</label>
+                            <input class="text-input small-input"  type="text" id="username" name="form[username]" />
+                        </div>
+                        <div>
+                            <label for="telnumber">{{ 'Phone number'|trans }}</label>
+                            <input class="text-input small-input"  type="text" id="telnumber" name="form[telnumber]" />
+                        </div>
+                        {{ form_label(form.usertype) }}
+                        {{ form_errors(form.usertype) }}
+                        {{ form_widget(form.usertype) }}
+                        <div>
+                            <label for="email">{{ 'Email'|trans }}</label>
+                            <input class="text-input small-input"  type="text" id="email" name="form[email]" />
+                        </div>
+                        {{ form_label(form.password) }}
+                        {{ form_errors(form.password) }}
+                        {{ form_widget(form.password) }}
+                        {#<div>
+                            <label for="password">{{ 'Password'|trans }}</label>
+                            <input class="text-input small-input"  type="password" id="password" name="form[password]" />
+                        </div>#}
+                        <div>
+                            <label for="tryingnumber">{{ 'Trying number'|trans }}</label>
+                            <input class="text-input small-input"  type="number" id="tryingnumber" name="form[tryingnumber]" />
+                        </div>
+                        <div>
+                            <label for="bamed">{{ 'Bamed'|trans }}</label>
+                            <input class="text-input small-input"  type="checkbox" id="bamed" name="form[bamed]" />
+                        </div>
+                        <div>
+                            <label for="addressstreet">{{ 'Street'|trans }}</label>
+                            <input class="text-input small-input"  type="text" id="addressstreet" name="form[addressstreet]" />
+
+                            <label for="addressnumber">{{ 'Number'|trans }}</label>
+                            <input class="text-input small-input"  type="text" id="addressnumber" name="form[addressnumber]" />
+                        </div>
+
+                        {{ form_label(form.postcode) }}
+                        {{ form_errors(form.postcode) }}
+                        {{ form_widget(form.postcode) }}
+
+                        {{ form_label(form.town) }}
+                        {{ form_errors(form.town) }}
+                        {{ form_widget(form.town) }}
+
+                        {{ form_label(form.locality) }}
+                        {{ form_errors(form.locality) }}
+                        {{ form_widget(form.locality) }}
+
+                        {#<p>
+                            <div>
+                                <label for="postcode">{{ 'Post code'|trans }}</label>
+                                <input class="text-input small-input"  type="text" id="addressstreet" name="form[postcode]" />
+                            </div>
+                        </p>
+
+                        <p>
+                            <div>
+                                <label for="town">{{ 'Town'|trans }}</label>
+                                <input class="text-input small-input"  type="text" id="town" name="form[town]" />
+                            </div>
+                        </p>
+
+                        <p>
+                            <div>
+                                <label for="locality">{{ 'Locality'|trans }}</label>
+                                <input class="text-input small-input"  type="" id="locality" name="form[locality]" />
+                            </div>
+                        </p>#}
+
+                    </fieldset>
+
+                    {#{{ form_widget(form) }}#}
+
+                    <div class="clear"></div><!-- End .clear -->
+                    {# {{ form_widget(form.save) }}#}
+                </form>
+
+            </div> <!-- End #tab2 -->
+
+        </div> <!-- End .content-box-content -->
+
+    </div> <!-- End .content-box -->
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('admin_user') }}">
+                <i class="icon-backward"></i> {{ 'Back to the list'|trans }}
+            </a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,25 @@
+core:
+    resource: "@CoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin:
+    resource: "@AdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+redirect_to_lang:
+  pattern: /
+  defaults: { _controller: AdminBundle:Defaultredirect }
+
+wellness_core:
+    resource: "@AdminBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}
+    defaults: { _locale: "%locale%" }
+    requirements:
+        _locale: en|fr
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

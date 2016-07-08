@@ -1,0 +1,40 @@
+dashboard: 'Tableau de bord'
+Welcome: Bienvenue
+'What would you like to do?': 'Que voudriez vous faire?'
+'Write an Article': 'Ecrire un article'
+'Create a New Page': 'Creer une nouvelle page'
+'Upload an Image': 'Charger une image'
+'Upload a music': 'Charger une musique'
+'Add an Event': 'Charger un évenement'
+'Site administration': 'Administration du site'
+'Choose from the menu an action to perform.': 'Choisissez dans le menu une action à effectuer..'
+'View the Site': 'Voir le site'
+'Sign Out': 'Se déconnecter'
+Dashboard: 'Tableau de bord'
+User: Utilisateur
+'Add an user': 'Ajouter un utilisateur'
+Settings: Paramètres
+General: Générale
+'Users list': 'Liste utilisateurs'
+'Modify an user': 'Modifier utilisateur'
+'Back to the list': 'Retour à la liste'
+Id: Num
+'News list': 'Liste de news'
+Name: Nom
+'Phone number': 'Numéro téléphone'
+Street: Rue
+Number: Numéro
+'Inscription confirmation': 'Confirmation inscription'
+'Trying number': 'Nombre d''essaie'
+Bamed: Banni
+Edit: Editer
+Email: 'Adresse email'
+Type: Type
+Actions: Actions
+Add: Ajouter
+'User name': "Nom d'utilisateur"
+'User type': "Type d'utilisateur"
+'Password': "Mot de passe"
+'Post code': "Code postal"
+'Town': 'Commune'
+'Locality': 'Localité'

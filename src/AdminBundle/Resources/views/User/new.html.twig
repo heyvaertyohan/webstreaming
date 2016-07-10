@@ -72,13 +72,18 @@
                         {{ form_errors(form.postcode) }}
                         {{ form_widget(form.postcode) }}
 
-                        {{ form_label(form.town) }}
+                        {#{{ form_label(form.town) }}
                         {{ form_errors(form.town) }}
-                        {{ form_widget(form.town) }}
+                        {{ form_widget(form.town) }}#}
 
                         {{ form_label(form.locality) }}
-                        {{ form_errors(form.locality) }}
+                        {{ form_errors(form.locality) }}  
                         {{ form_widget(form.locality) }}
+
+                        {#{{ dump(form) }}#}
+                        <br/>
+                        <br/>
+                        {{ form_widget(form.submit, { 'label': 'Ajouter', 'translation_domain' : 'messages' }) }}
 
                         {#<p>
                             <div>
